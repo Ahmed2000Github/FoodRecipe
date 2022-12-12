@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('recipe')}
+      <ui:define name="title">
+        <title>Recipe details</title>
+      </ui:define>
+      <ui:define name="content">
+        <section>
+          <br />
+          #{recipesDetailsController.fillData()}
+          <div class="row d-flex col-md-12 px-5">
+            <div class="col-md-5">
+              <img
+                class="rounded h-100"
+                src="#{recipesDetailsController.infoData.get('url')}"
+                alt=""
+              />
+            </div>
+            <div class="col-md-7">
+              <h3 class="text-primary text-decoration-underline">
+                Generale informations
+              </h3>
+              <hr />
+              <br />
+              <div class="bg-primary-light rounded pl-4 pt-2">
+                <div class="d-flex text-black">
+                  <p class="mr-4 fs-5 fw-bold">Title:</p>
+                  <p class="fs-5">
+                    #{recipesDetailsController.infoData.get('title')}
+                  </p>
+                </div>
+                <div class="d-flex text-black">
+                  <p class="mr-4 fs-5 fw-bold">Owner:</p>
+                  <p class="fs-5">
+                    #{recipesDetailsController.infoData.get('owner')}
+                  </p>
+                </div>
+                <div class="d-flex text-black">
+                  <p class="mr-4 fs-5 fw-bold">Type:</p>
+                  <p class="fs-5">
+                    #{recipesDetailsController.infoData.get('type').toUpperCase()}
+                  </p>
+                </div>
+                <div class="d-flex text-black">
+                  <p class="fs-5 fw-bold mr-4">Number of Ingridients:</p>
+                  <p class="fs-5">
+                    #{recipesDetailsController.infoData.get('ingredientsCounter')}
+                  </p>
+                </div>
+                <div class="d-flex text-black">
+                  <p class="fs-5 fw-bold mr-4">Number of Steps:</p>
+                  <p class="fs-5">
+                    #{recipesDetailsController.infoData.get('stepsCounter')}
+                  </p>
+                </div>
+                <div class="d-flex text-black">
+                  <p class="fs-5 fw-bold mr-4">Creation date:</p>
+                  <p class="fs-5">
+                    #{recipesDetailsController.infoData.get('date')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h3 class="text-primary text-decoration-underline">Ingridients:</h3>
+            <hr />
+            <br />
+            <div class="col-md-12 d-flex justify-content-between flex-wrap">
+              <c:forEach
+                var="group"
+                items="#{recipesDetailsController.ingredientData}"
+              >
+                <div class="col-md-4 card mx-0 border-success">
+                  <h3 class="card-title p-3">#{group.key}</h3>
+                  <div class="d-flex flex-column align-items-center">
+                    <c:forEach var="element" items="#{group.value}">
+                      <p class="fs-4">
+                        #{element.value.get('name')} :
+                        #{element.value.get('quantity')}
+                      </p>
+                    </c:forEach>
+                  </div>
+                </div>
+              </c:forEach>
+            </div>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h3 class="text-primary text-decoration-underline">
+              Steps to follow:
+            </h3>
+            <hr />
+            <br />
+            <table class="table table-striped text-black">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <c:forEach
+                  var="item"
+                  items="#{recipesDetailsController.stepData}"
+                >
+                  <tr class="text-primary fw-bold">
+                    <th scope="row">#{item.get('num')}</th>
+                    <td>#{item.get('description')}</td>
+                    <td>#{item.get('time')}</td>
+                  </tr>
+                </c:forEach>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h3 class="text-primary text-decoration-underline">Nutritions:</h3>
+            <hr />
+            <br />
+            <div
+              class="d-flex justify-content-center flex-wrap rounded pl-4 pt-2"
+            >
+              <c:forEach
+                var="item"
+                items="#{recipesDetailsController.nutritionData}"
+              >
+                <div class="col-md-6 d-flex text-black">
+                  <p class="mr-4 fs-5 fw-bold">#{item.key}:</p>
+                  <p class="fs-5">#{item.value}</p>
+                </div>
+              </c:forEach>
+            </div>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="container d-flex justify-content-between">
+            <h:form>
+              <h:commandButton
+                actionListener="#{recipesDetailsController.addLike}"
+                type="submit"
+                value="Like"
+                class="btn btn-primary mt-2 p-1"
+                style="height: 40px; width: 200px"
+              >
+              </h:commandButton>
+            </h:form>
+            <div class="fs-3 text-primary">
+              #{recipesDetailsController.infoData.get('likes')} likes
+            </div>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h3 class="text-primary text-decoration-underline">Comments:</h3>
+            <hr />
+            <br />
+            <form
+              class="col-md-12 d-flex justify-content-center align-content-center"
+            >
+              <h:form>
+                <div class="form-group col-md-10">
+                  <label for="comment" class="text-black fw-bold"
+                    >Comment</label
+                  >
+                  <h:inputText
+                    type="text"
+                    id="comment"
+                    value="#{recipesDetailsController.newComment}"
+                    class="form-control"
+                    style="height: 50px"
+                    p:placeholder="Comments ..."
+                  />
+                </div>
+
+                <h:commandButton
+                  actionListener="#{recipesDetailsController.addComment}"
+                  value="Submit"
+                  type="submit"
+                  class="btn col-md-2 btn-primary mt-2 p-1 w-25"
+                  style="height: 50px"
+                >
+                </h:commandButton>
+              </h:form>
+            </form>
+            <br />
+
+            <div
+              class="d-flex justify-content-center flex-wrap rounded pl-4 pt-2"
+            >
+              <c:forEach
+                var="comment"
+                items="#{recipesDetailsController.commentsData}"
+              >
+                <div class="col-md-12 p-3 card text-black mb-4">
+                  <p class="mr-4 fs-5 fw-bold">
+                    #{comment.get('username').toUpperCase()}: <br />
+                    <span class="ml-4 fs-6 fw-normal"
+                      >#{comment.get('date')}</span
+                    >
+                  </p>
+
+                  <p class="fs-5">#{comment.get('description')}</p>
+                </div>
+              </c:forEach>
+            </div>
+          </div>
+        </section>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

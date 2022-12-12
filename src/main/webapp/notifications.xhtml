@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('notification')}
+      <ui:define name="title">
+        <title>Notifications</title>
+      </ui:define>
+      <ui:define name="content">
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h2 class="text-primary">List of notifications :</h2>
+            <hr />
+            <br />
+            <c:choose>
+              <c:when test="#{recipesDetailsController.getMessages().size()>0}">
+                <c:forEach
+                  var="msg"
+                  items="#{recipesDetailsController.messagesList}"
+                >
+                  <div
+                    class="d-flex justify-content-center flex-wrap rounded pl-4 pt-2"
+                  >
+                    <div class="col-md-12 p-3 card text-black">
+                      <p class="mr-4 fs-5 fw-bold">
+                        <span class="text-black-50"
+                          >New message recived :
+                        </span>
+                        <br />
+                        <span class="ml-4 fs-6 fw-normal"
+                          >#{msg.getDate()}</span
+                        >
+                      </p>
+
+                      <p class="fs-5">
+                        #{msg.getContent()}
+                        <!-- you have new like added by USERNAME for the recipe RECIPENAME -->
+                      </p>
+                      <style>
+                        .btn-danger {
+                          background-color: crimson !important;
+                          border: none;
+                          border-radius: 10px !important;
+                        }
+                      </style>
+                    </div>
+                  </div>
+                </c:forEach></c:when
+              >
+              <c:otherwise>
+                <div class="d-flex justify-content-between">
+                  <span> No message found.</span>
+                  <h:form class="d-flex justify-content-end">
+                    <h:commandButton
+                      action="#{recipesDetailsController.refreshMessages()}"
+                      type="submit"
+                      value="Refresh"
+                      class="btn btn-info"
+                      style="height: 50px"
+                    >
+                    </h:commandButton>
+                  </h:form>
+                </div>
+              </c:otherwise>
+            </c:choose>
+          </div>
+        </section>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

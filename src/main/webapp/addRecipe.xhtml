@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('recipe')}
+      <ui:define name="title">
+        <title>Add recipe</title>
+      </ui:define>
+      <ui:define name="content">
+        <style>
+          .form-control {
+            height: 40px !important;
+          }
+          .cadre {
+            background-color: #21d19255;
+            border-radius: 5px;
+            border: 10px #21d192 !important;
+          }
+          .hrdivider {
+            position: relative;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+          }
+
+          .hrdivider span {
+            position: absolute;
+            top: -11px;
+            background: #fff;
+            padding: 0 20px;
+            font-weight: bold;
+            font-size: 16px;
+          }
+          .no-border {
+            border: none;
+          }
+        </style>
+        <section class="bg-tertiary">
+          <div class="mx-5 d-flex justify-content-center">
+            <h:form
+              enctype="multipart/form-data"
+              class="col-md-10 was-validated"
+            >
+              <h1 class="text-primary">Share new recipe</h1>
+              <br />
+              <div class="form-row">
+                <div class="form-group has-validation col-md-6">
+                  <label for="inputEmail4">Title</label>
+                  <h:inputText
+                    type="text"
+                    value="#{addRecipeController.title}"
+                    class="form-control"
+                    id="inputEmail4"
+                    p:placeholder="Title ..."
+                    p:required="true"
+                  />
+                  <div class="invalid-feedback">This field is required</div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Type</label>
+                  <h:selectOneMenu
+                    class="form-control custom-select h-100 custom-select-lg"
+                    required="true"
+                    value="#{addRecipeController.type}"
+                  >
+                    <f:selectItem itemValue="food" itemLabel="Food" />
+                    <f:selectItem itemValue="juice" itemLabel="Juice" />
+                  </h:selectOneMenu>
+                </div>
+              </div>
+              <br />
+              <div class="input-group">
+                <div class="custom-file">
+                  <h:inputFile
+                    value="#{addRecipeController.imageFile}"
+                    class="custom-file-input customFileInput"
+                    aria-describedby="customFileInput"
+                    p:accept="image/*"
+                  />
+                  <label class="custom-file-label" for="customFileInput"
+                    >#{addRecipeController.fileName}</label
+                  >
+                </div>
+              </div>
+              <br />
+              <br />
+              <div class="hrdivider">
+                <hr />
+                <span>Ingridients</span>
+              </div>
+
+              <br />
+              <div class="form-row">
+                <div class="form-group col-md-10">
+                  <label for="inputCity">Group</label>
+                  <h:inputText
+                    type="text"
+                    value="#{addRecipeController.groupName}"
+                    class="form-control"
+                    p:placeholder="Add Group ..."
+                  />
+                </div>
+                <div class="form-group col-md-2 d-flex justify-content-end">
+                  <h:commandButton
+                    action="#{addRecipeController.addGroup()}"
+                    value="Add"
+                    class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+                    style="height: 40px"
+                  >
+                    <!--  <i class="fa fa-plus-circle fs-2" aria-hidden="true"></i>-->
+                  </h:commandButton>
+                </div>
+              </div>
+              <c:forEach items="${addRecipeController.getKeys()}" var="group">
+                <br />
+                <div
+                  class="pl-3 d-flex w-100 text-primary fs-4"
+                  style="height: 20px"
+                >
+                  <div class="col-md-10">#{group}</div>
+                  <div class="col-md-2">
+                    <div class="col-md-12 d-flex gap-4">
+                      <h:commandButton
+                        value="delete"
+                        action="#{addRecipeController.deleteGroup(group)}"
+                        class="text-danger btn btn-link"
+                      >
+                        <!--   <i class="fa fa-times fs-4" aria-hidden="true"></i>-->
+                      </h:commandButton>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <c:forEach
+                  items="${addRecipeController.getValues(group)}"
+                  var="map"
+                >
+                  <div
+                    class="cadre d-flex align-items-center col-md-12 pl-5 w-100 text-dark fs-5"
+                  >
+                    <div class="col-md-5">#{map.get('name')}</div>
+                    <div class="col-md-5">#{map.get('quantity')}</div>
+                    <div class="col-md-2 d-flex gap-4 justify-content-center">
+                      <h:commandButton
+                        value="delete"
+                        action="#{addRecipeController.deleteIngredient(group,map)}"
+                        class="text-danger btn btn-link"
+                      >
+                        <!--   <i class="fa fa-times fs-4" aria-hidden="true"></i>-->
+                      </h:commandButton>
+                    </div>
+                  </div>
+                </c:forEach>
+                <br />
+              </c:forEach>
+              <br />
+              <c:choose>
+                <c:when test="#{addRecipeController.getKeys().size()>0}">
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="inputCity">Name</label>
+                      <h:inputText
+                        type="text"
+                        id="#{group.key}name"
+                        value="#{addRecipeController.name}"
+                        class="form-control form-control-sm"
+                        p:placeholder="Name ..."
+                      />
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputZip">Quantity</label>
+                      <h:inputText
+                        type="text"
+                        value="#{addRecipeController.quantity}"
+                        class="form-control"
+                        p:placeholder="Quantity ..."
+                      />
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputEmail4">Group</label>
+                      <h:selectOneMenu
+                        class="custom-select h-100 custom-select-lg"
+                        value="#{addRecipeController.groupType}"
+                      >
+                        <c:forEach
+                          items="${addRecipeController.getKeys()}"
+                          var="group"
+                        >
+                          <f:selectItem
+                            itemValue="#{group}"
+                            itemLabel="#{group}"
+                          />
+                        </c:forEach>
+                      </h:selectOneMenu>
+                    </div>
+                    <div class="form-group col-md-2 d-flex justify-content-end">
+                      <h:commandButton
+                        action="#{addRecipeController.addIngredient()}"
+                        value="Add"
+                        class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+                        style="height: 40px"
+                      >
+                        <!--  <i class="fa fa-plus-circle fs-2" aria-hidden="true"></i>-->
+                      </h:commandButton>
+                    </div>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                  <div></div>
+                </c:otherwise>
+              </c:choose>
+              <br />
+              <div class="hrdivider">
+                <hr />
+                <span>Steps</span>
+              </div>
+              <br />
+              <c:forEach items="${addRecipeController.steps}" var="step">
+                <div
+                  class="cadre d-flex align-items-center w-100 text-dark fs-6"
+                >
+                  <div class="col-md-2">#{step.get('num')}</div>
+                  <div class="col-md-5 fs-6">
+                    #{(step.get('description').length()>40)?(step.get('description').substring('0',
+                    '37').concat("...")):step.get('description')}
+                  </div>
+                  <div class="col-md-2">#{step.get('time')}</div>
+                  <div class="col-md-3 d-flex gap-1 fs-6">
+                    <h:commandButton
+                      value="delete"
+                      action="#{addRecipeController.deleteStep(step)}"
+                      class="text-danger no-border btn-link"
+                    >
+                      <!--   <i class="fa fa-times fs-4" aria-hidden="true"></i>-->
+                    </h:commandButton>
+                    <h:commandButton
+                      value="up"
+                      action="#{addRecipeController.moveUpStep(step)}"
+                      class="text-info no-border btn-link"
+                    >
+                      <!--   <i class="fa fa-times fs-4" aria-hidden="true"></i>-->
+                    </h:commandButton>
+                    <h:commandButton
+                      value="down"
+                      action="#{addRecipeController.moveDownStep(step)}"
+                      class="text-info no-border btn-link"
+                    >
+                      <!--   <i class="fa fa-times fs-4" aria-hidden="true"></i>-->
+                    </h:commandButton>
+                  </div>
+                </div>
+              </c:forEach>
+              <br />
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputCity">Description</label>
+                  <h:inputText
+                    type="text"
+                    value="#{addRecipeController.description}"
+                    class="form-control"
+                    p:placeholder="Description ..."
+                  />
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="inputZip">Time</label>
+                  <h:inputText
+                    type="text"
+                    value="#{addRecipeController.time}"
+                    class="form-control"
+                    p:placeholder="Time ..."
+                  />
+                </div>
+                <div class="form-group col-md-2 d-flex justify-content-end">
+                  <h:commandButton
+                    action="#{addRecipeController.addStep()}"
+                    value="Add"
+                    class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+                    style="height: 40px"
+                  >
+                    <!--  <i class="fa fa-plus-circle fs-2" aria-hidden="true"></i>-->
+                  </h:commandButton>
+                </div>
+              </div>
+              <br />
+              <div class="hrdivider">
+                <hr />
+                <span>Nutrition</span>
+              </div>
+              <br />
+              <c:forEach items="${addRecipeController.nutritions}" var="map">
+                <div
+                  class="cadre d-flex align-items-center col-md-12 pl-5 w-100 text-dark fs-5"
+                >
+                  <c:forEach items="${map}" var="item">
+                    <div class="col-md-5">#{item.key}</div>
+                    <div class="col-md-5">#{item.value}</div>
+                  </c:forEach>
+                  <div class="col-md-2 d-flex gap-4 justify-content-center">
+                    <h:commandButton
+                      value="delete"
+                      action="#{addRecipeController.deleteNutrition(map)}"
+                      class="text-danger btn btn-link"
+                    >
+                      <!--   <i class="fa fa-times fs-4" aria-hidden="true"></i>-->
+                    </h:commandButton>
+                  </div>
+                </div>
+              </c:forEach>
+              <br />
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputCity">Name</label>
+                  <h:inputText
+                    type="text"
+                    value="#{addRecipeController.nameN}"
+                    class="form-control"
+                    p:placeholder="Name ..."
+                  />
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="inputZip">Value</label>
+                  <h:inputText
+                    type="text"
+                    value="#{addRecipeController.value}"
+                    class="form-control"
+                    p:placeholder="Value ..."
+                  />
+                </div>
+                <div class="form-group col-md-2 d-flex justify-content-end">
+                  <h:commandButton
+                    action="#{addRecipeController.addNutrition()}"
+                    value="Add"
+                    class="btn btn-primary d-flex justify-content-center align-items-center w-100"
+                    style="height: 40px"
+                  >
+                    <!--  <i class="fa fa-plus-circle fs-2" aria-hidden="true"></i>-->
+                  </h:commandButton>
+                </div>
+              </div>
+              <br />
+              <h:commandButton
+                actionListener="#{addRecipeController.submit}"
+                class="btn btn-primary"
+                value="Share"
+              />
+            </h:form>
+          </div>
+        </section>
+
+        <!-- # JS Plugins -->
+
+        <script>
+          document
+            .querySelector(".custom-file-input")
+            .addEventListener("change", function (e) {
+              console.log("done");
+              var name =
+                document.querySelector(".customFileInput").files[0].name;
+              var nextSibling = e.target.nextElementSibling;
+              nextSibling.innerText = name;
+            });
+        </script></ui:define
+      >
+    </ui:composition>
+  </h:body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('user')}
+      <ui:define name="title">
+        <title>Users</title>
+      </ui:define>
+      <ui:define name="content">
+        <section>
+          <br />
+          <div class="row d-flex col-md-12 px-5">
+            <h:form
+              class="col-md-12 d-flex justify-content-center gap-2 align-content-center"
+            >
+              <div class="form-group col-md-6">
+                <h:inputText
+                  type="text"
+                  id="comment"
+                  class="form-control"
+                  style="height: 50px"
+                  p:placeholder="Enter name or email ..."
+                  value="#{userController.searchText}"
+                />
+              </div>
+              <h:commandButton
+                type="submit"
+                value="Search"
+                class="btn col-md-2 btn-primary mt-2 p-1"
+                style="height: 50px; width: 100px"
+                action="#{userController.searchSubmit()}"
+              >
+              </h:commandButton>
+            </h:form>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h3 class="text-primary">List of avialable usders</h3>
+            <hr />
+            <br />
+            <div
+              class="col-md-12 d-flex justify-content-center flex-wrap gap-4"
+            >
+              <c:forEach var="item" items="#{userController.allUsers}">
+                <div
+                  class="col-md-3 card mx-0 px-2 py-1 border-success"
+                  style="background-color: rgba(173, 172, 172, 0.505)"
+                >
+                  <div class="col-md-12 d-flex">
+                    <div class="col-md-9">
+                      <h3 class="card-title p-0">#{item.name}</h3>
+                      <h6 class="card-title p-0">#{item.email}</h6>
+                    </div>
+                    <div
+                      class="col-md-3 d-flex align-items-center p-0 justify-content-center"
+                    >
+                      <h:form>
+                        <h:commandButton
+                          styleClass="btn btn-primary mt-0 p-1"
+                          action="#{userController.handleShownUser(item.id)}"
+                          value="Show"
+                        />
+                      </h:form>
+                    </div>
+                  </div>
+                </div>
+              </c:forEach>
+            </div>
+            <br />
+          </div>
+        </section>
+        <br />
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

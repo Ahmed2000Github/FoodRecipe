@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('recipe')}
+      <ui:define name="title">
+        <title>Recipes</title>
+      </ui:define>
+      <ui:define name="content">
+        <section class="bg-tertiary position-relative overflow-hidden">
+          <br />
+          <div class="container">
+            <a
+              type="button"
+              class="btn btn-primary px-5"
+              href="./addRecipe.xhtml"
+              >Add recipe</a
+            >
+          </div>
+          <div class="align-items-center justify-content-center pt-5 pb-3">
+            <div
+              class="row mx-sm-1 mx-lg-5 mx-md-3 pl-5 pr-5 d-flex flex-wrap gap-3 justify-content-center"
+            >
+              <h1 class="text-primary col-md-5">Reciprs list</h1>
+              <div class="d-flex gap-3 flex-wrap col-md-6 justify-content-end">
+                <h:form
+                  ><h:commandButton
+                    action="#{recipesController.setType('all')}"
+                    class="btn btn-primary shadow #{recipesController.getCurrent('all')}"
+                    value="All"
+                /></h:form>
+                <h:form
+                  ><h:commandButton
+                    action="#{recipesController.setType('food')}"
+                    class="btn btn-primary shadow #{recipesController.getCurrent('food')}"
+                    value="Food"
+                /></h:form>
+                <h:form>
+                  <h:commandButton
+                    action="#{recipesController.setType('juice')}"
+                    class="btn btn-primary shadow #{recipesController.getCurrent('juice')}"
+                    value="Juice"
+                /></h:form>
+                <h:form>
+                  <h:commandButton
+                    action="#{recipesController.setType('owner')}"
+                    class="btn btn-primary shadow #{recipesController.getCurrent('owner')}"
+                    value="My recipes"
+                /></h:form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bg-tertiary position-relative overflow-hidden">
+          <div class="row mx-sm-1 mx-lg-5 mx-md-3 pl-5 pr-5">
+            <c:forEach var="item" items="#{recipesController.getRecipes()}">
+              <div class="col-md-4 mb-3">
+                <div class="card shadow">
+                  <img
+                    class="card-img-top bg-dark"
+                    src="#{item.url}"
+                    alt="Card image cap"
+                    style="max-height: 300px; min-height: 300px"
+                  />
+                  <div class="card-body">
+                    <h5 class="row card-title">
+                      <div class="w-75 d-flex justify-content-start">
+                        #{item.title}
+                      </div>
+                      <div
+                        class="w-25 d-flex justify-content-end align-items-center"
+                        style="font-size: 10px; font-weight: normal"
+                      >
+                        #{item.date}
+                      </div>
+                    </h5>
+
+                    <div class="d-flex justify-content-center gap-5 mb-4">
+                      <div class="col w-50d-flex justify-content-start fw-bold">
+                        #{item.comments} <i class="fa fa-comments"></i>
+                      </div>
+                      <div class="col w-50 d-flex justify-content-end fw-bold">
+                        #{item.likes} likes
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-end fw-bold">
+                      <h:form>
+                        <h:commandButton
+                          action="#{recipesDetailsController.setRecipeId(item.id)}"
+                          value="More ..."
+                          class="btn btn-primary shadow"
+                        >
+                        </h:commandButton>
+                      </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </c:forEach>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+        </section>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

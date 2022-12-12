@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="../adminTemplate/common.xhtml">
+      #{adminController.getRecipes()}
+      <ui:define name="title">
+        <title>Recipes &amp;and; Comments</title>
+      </ui:define>
+      <ui:define name="content">
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <div class="col-md-12 d-flex justify-content-between">
+              <h2 class="text-primary">General Informations :</h2>
+              <h:form>
+                <h:commandButton
+                  action="#{adminController.refreshRecipes()}"
+                  type="submit"
+                  value="Refresh"
+                  class="btn btn-info"
+                  style="height: 40px"
+                >
+                </h:commandButton>
+              </h:form>
+            </div>
+            <hr />
+            <br />
+
+            <div
+              class="d-flex justify-content-center flex-wrap rounded pl-4 pt-2"
+            >
+              <div class="col-md-12 card p-5">
+                <h4 class="text-black-50">Number : 23 recipes</h4>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <h3 class="text-primary text-decoration-underline">Recipes :</h3>
+            <hr />
+            <br />
+            <table class="table table-striped text-black">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-primary fw-bold">
+                  <th scope="row">1</th>
+                  <td>
+                    <img
+                      loading="prelaod"
+                      decoding="async"
+                      class="img-fluid"
+                      style="width: 40px; height: 40px; border-radius: 50%"
+                      src="./images/logo.jpg"
+                      alt="Wallet"
+                    />
+                  </td>
+                  <td>Description</td>
+                  <td>Description</td>
+                  <td>10 min</td>
+                  <td class="pl-4" style="max-width: 10px">
+                    <h:form>
+                      <h:commandButton
+                        action="#{adminController.refreshRecipes()}"
+                        type="submit"
+                        value="Delete"
+                        class="btn btn-danger"
+                        style="height: 40px"
+                      >
+                      </h:commandButton>
+                    </h:form>
+                    <h:form>
+                      <h:commandButton
+                        action="#{adminController.refreshRecipes()}"
+                        type="submit"
+                        value="comments"
+                        class="btn btn-info"
+                        style="height: 40px"
+                      >
+                      </h:commandButton>
+                    </h:form>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <c:choose>
+          <c:when test="#{adminController.commentsOfRecipeList.size()>0}">
+            <section>
+              <br />
+              <div class="col-md-12 px-5">
+                <h3 class="text-primary text-decoration-underline">
+                  Comments :
+                </h3>
+                <hr />
+                <br />
+                <table class="table table-striped text-black">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Sender</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="text-primary fw-bold">
+                      <th scope="row">1</th>
+                      <td>Description</td>
+                      <td>10 min</td>
+                      <td>10 min</td>
+                      <td class="pl-4" style="max-width: 10px">
+                        <h:form>
+                          <h:commandButton
+                            action="#{adminController.refreshRecipes()}"
+                            type="submit"
+                            value="Delete"
+                            class="btn btn-danger"
+                            style="height: 40px"
+                          >
+                          </h:commandButton>
+                        </h:form>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+              </div>
+            </section>
+          </c:when>
+          <c:otherwise>
+            <div></div>
+          </c:otherwise>
+        </c:choose>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

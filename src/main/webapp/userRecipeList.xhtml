@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://java.sun.com/jstl/core"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('user')}
+      <ui:define name="title">
+        <title>User recipes</title>
+      </ui:define>
+      <ui:define name="content">
+        <section class="bg-tertiary position-relative overflow-hidden">
+          <div class="container">
+            <div
+              class="row align-items-center justify-content-center pt-5 pb-3"
+            >
+              <h1 class="text-center text-primary">Recipes list</h1>
+            </div>
+            <hr />
+            <div
+              class="container d-flex flex-wrap my-5 p-4 card"
+              style="background-color: rgb(187, 244, 230)"
+            >
+              <div class="col-md-12 d-flex">
+                <div class="col-md-6">
+                  <h3 class="text-info">
+                    UserName :
+                    <span class="text-dark fs-5"
+                      >#{userController.fetchShownUser().user.name}</span
+                    >
+                  </h3>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="text-info">
+                    Likes Number :
+                    <span class="text-dark fs-5">
+                      #{userController.fetchShownUser().allLikes } likes</span
+                    >
+                  </h3>
+                </div>
+              </div>
+              <div class="col-md-12 d-flex">
+                <div class="col-md-6">
+                  <h3 class="text-info">
+                    Email :
+                    <span class="text-dark fs-5"
+                      >#{userController.fetchShownUser().user.email}</span
+                    >
+                  </h3>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="text-info">
+                    Total :
+                    <span class="text-dark fs-5">
+                      #{userController.fetchShownUser().recipesCount}
+                      Recipes</span
+                    >
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bg-tertiary position-relative overflow-hidden">
+          <div class="row mx-sm-1 mx-lg-5 mx-md-3 pl-5 pr-5">
+            <c:forEach
+              var="item"
+              items="#{userController.fetchShownUser().recipes}"
+            >
+              <div class="col-md-4 mb-3">
+                <div class="card shadow">
+                  <img
+                    class="card-img-top bg-dark"
+                    src="#{item.url}"
+                    alt="Card image cap"
+                    style="max-height: 300px; min-height: 300px"
+                  />
+                  <div class="card-body">
+                    <div class="row card-title">
+                      <div class="col w-50d-flex justify-content-start">
+                        #{item.title}
+                      </div>
+                      <div
+                        class="col w-50 d-flex justify-content-end align-items-center"
+                        style="font-size: 10px; font-weight: normal"
+                      >
+                        #{item.date}
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center gap-5 mb-4">
+                      <div class="col w-50d-flex justify-content-start fw-bold">
+                        #{item.comments} <i class="fa fa-comments"></i>
+                      </div>
+                      <div class="col w-50 d-flex justify-content-end fw-bold">
+                        #{item.likes} likes
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-end fw-bold">
+                      <h:form>
+                        <h:commandButton
+                          action="#{recipesDetailsController.setRecipeId(item.id)}"
+                          value="More ..."
+                          class="btn btn-primary shadow"
+                        >
+                        </h:commandButton>
+                      </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </c:forEach>
+          </div>
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
+
+<!-- Main Script -->

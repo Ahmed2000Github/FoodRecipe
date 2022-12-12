@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="../adminTemplate/common.xhtml">
+      <ui:define name="title">
+        <title>Dashbord</title>
+      </ui:define>
+      <ui:define name="content">
+        <section>
+          <br />
+          <div class="col-md-12 px-5">
+            <div class="col-md-12 d-flex justify-content-between">
+              <h2 class="text-primary">List of today feedbacks :</h2>
+              <form>
+                <button type="submit" class="btn btn-info" style="height: 40px">
+                  Refresh
+                </button>
+              </form>
+            </div>
+            <hr />
+            <br />
+
+            <div
+              class="d-flex justify-content-center flex-wrap rounded pl-4 pt-2"
+            >
+              <div class="col-md-12 p-3 card text-black">
+                <p class="mr-4 fs-5 fw-bold">
+                  <span class="text-black-50"
+                    >From : Username email@gmail.com
+                  </span>
+                  <br />
+                  <span class="ml-4 fs-6 fw-normal">12/12/2022 at 13:13</span>
+                </p>
+
+                <p class="fs-5">
+                  you have new like added by USERNAME for the recipe RECIPENAME
+                </p>
+                <style>
+                  .btn-danger {
+                    background-color: crimson !important;
+                    border: none;
+                    border-radius: 10px !important;
+                  }
+                </style>
+                <form class="d-flex justify-content-end">
+                  <button
+                    type="submit"
+                    class="col-md-2 btn-primary mt-2 p-1 w-25"
+                    style="height: 50px"
+                  >
+                    save
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

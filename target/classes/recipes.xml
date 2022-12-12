@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<recipes>
+
+    <recipe id="1">
+        <titre>Crock Pot Roast</titre>
+        <type>food</type>
+        <url>https://th.bing.com/th/id/OIP.1QH7lCMf6yDte3kgvM7qKAHaK8?pid=ImgDet&amp;rs=1</url>
+        <ingredients>
+            <vegitables>
+                <element>
+                    <name>carrot</name>
+                    <quantite>2</quantite>
+                </element>
+                <element>
+                    <name>onion</name>
+                    <quantite>1</quantite>
+                </element>
+            </vegitables>
+            <oils>
+                <element>
+                    <name>olive</name>
+                    <quantite>1/2 cup</quantite>
+                </element>
+            </oils>
+            <others>
+                <element>
+                    <name>water</name>
+                    <quantite>2 cup</quantite>
+                </element>
+            </others>
+
+        </ingredients>
+        <steps>
+            <step>
+                <num>1</num>
+                <description>Place beef roast in crock pot.</description>
+                <time>0</time>
+
+            </step>
+            <step>
+                <num>2</num>
+                <description>Mix the dried mixes together in a bowl and sprinkle over the roast.</description>
+                <time>0</time>
+
+            </step>
+            <step>
+                <num>3</num>
+                <description>Pour the water around the roast.</description>
+                <time>0</time>
+
+            </step>
+            <step>
+                <num>4</num>
+                <description>Cook on low for 7-9 hours.</description>
+                <time>420</time>
+
+            </step>
+        </steps>
+        <nutrition>
+            <calories>1167</calories>
+            <fat>23</fat>
+            <carbohydrates>45</carbohydrates>
+            <protein>32</protein>
+        </nutrition>
+        <likes>12</likes>
+        <Comments>
+            <comment>
+                    is very delicious
+            </comment>
+        </Comments>
+
+    </recipe>
+    <recipe id="2">
+        <titre>orange juice</titre>
+        <type>juice</type>
+        <url>https://th.bing.com/th/id/OIP.4jw9ULBKY-QHRBdfd2bhOgHaFA?w=247&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.5&amp;pid=1.7</url>
+        <ingredients>
+            <fuits>
+                <element>
+                    <name>orange</name>
+                    <quantite>10</quantite>
+                </element>
+            </fuits>
+            <others>
+                <element>
+                    <name>water</name>
+                    <quantite>4 cup</quantite>
+                </element>
+                <element>
+                    <name>sugre</name>
+                    <quantite>200 g</quantite>
+                </element>
+            </others>
+
+        </ingredients>
+        <steps>
+            <step>
+                <num>1</num>
+                <description>cut oranges</description>
+                <time>1</time>
+
+            </step>
+            <step>
+                <num>2</num>
+                <description>Squeeze the pieces into a glass </description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>3</num>
+                <description>add sugar </description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>4</num>
+                <description>Mix the obtained mixture</description>
+                <time>0</time>
+
+            </step>
+        </steps>
+        <nutrition>
+            <calories>14</calories>
+            <fat>0.1</fat>
+            <carbohydrates>3</carbohydrates>
+            <protein>0.2</protein>
+        </nutrition>
+        <likes>12</likes>
+        <Comments>
+            <comment>
+                    is very delicious
+            </comment>
+        </Comments>
+
+    </recipe>
+    <recipe id ="3">
+        <titre>Yorkshire Puds</titre>
+        <type>food</type>
+        <url>http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg</url>
+        <ingredients>
+            <others>
+                <element>
+                    <name>vegetable oil</name>
+                    <quantity>3 tbsp</quantity>
+                </element>
+                <element>
+                    <name>milk</name>
+                    <quantity>300ml</quantity>
+                </element>
+                <element>
+                    <name>eggs</name>
+                    <quantity>3</quantity>
+                </element>
+                <element>
+                    <name>plain flour</name>
+                    <quantity>200g</quantity>
+                </element>
+            </others>
+
+        </ingredients>
+        <steps>
+            <step>
+                <num>1</num>
+                <description>Put the flour and some seasoning into a large bowl.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>2</num>
+                <description>Stir in eggs, one at a time.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>3</num>
+                <description>Whisk in milk until you have a smooth batter.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>4</num>
+                <description>Chill in the fridge for at least 30 minutes.</description>
+                <time>30</time>
+            </step>
+            <step>
+                <num>5</num>
+                <description>Heat oven to 220C/gas mark 7.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>6</num>
+                <description>Pour the oil into the holes of a 8-hole muffin tin.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>7</num>
+                <description>Heat tin in the oven for 5 minutes.</description>
+                <time>5</time>
+            </step>
+            <step>
+                <num>8</num>
+                <description>Ladle the batter mix into the tin.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>9</num>
+                <description>Bake for 30 minutes until well browned and risen.</description>
+                <time>30</time>
+            </step>
+
+        </steps>
+        <nutrition>
+            <calories>?</calories>
+            <fat>?</fat>
+            <carbohydrates>?</carbohydrates>
+            <protein>?</protein>
+        </nutrition>
+        <likes>3</likes>
+        <Comments>
+            <comment>
+                    so hard to do
+            </comment>
+        </Comments>
+
+    </recipe>
+    <recipe id="4">
+        <titre>Ricotta Pie</titre>
+        <type>food</type>
+        <url>http://1.bp.blogspot.com/-zKqzJeEuagI/UW0DFGK4V8I/AAAAAAAAD8g/clm-TQZK0N8/s1600/FOTO2-3.jpg</url>
+        <ingredients>
+            <others>
+                <element>
+                    <name>ricotta cheese</name>
+                    <quantity>3</quantity>
+                </element>
+                <element>
+                    <name>eggs</name>
+                    <quantity>12</quantity>
+                </element>
+                <element>
+                    <name> white sugar</name>
+                    <quantity>3 tbsp</quantity>
+                </element>
+                <element>
+                    <name>vanilla extract </name>
+                    <quantity>2</quantity>
+                </element>
+                <element>
+                    <name>semisweet chocolate chips </name>
+                    <quantity>0.25</quantity>
+                </element>
+            </others>
+        </ingredients>
+        <steps>
+            <step>
+                <num>1</num>
+                <description>Beat the 12 eggs,</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>2</num>
+                <description>2 cups sugar and vanilla extract together.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>3</num>
+                <description>Stir in the ricotta cheese and the chocolate chips.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>4</num>
+                <description>Set aside.</description>
+                <time>0</time>
+            </step>
+        </steps>
+    </recipe>
+    <recipe id="5">
+        <titre>dough</titre>
+        <type>food</type>
+        <url>https://media.gettyimages.com/photos/making-yeast-dough-picture-id517164278</url>
+        <ingredients>
+            <others>
+                <element>
+                    <name>flour</name>
+                    <quantity>4</quantity>
+                </element>
+                <element>
+                    <name>baking powder</name>
+                    <quantity>5</quantity>
+                </element>
+                <element>
+                    <name>white sugar</name>
+                    <quantity>1</quantity>
+                </element>
+                <element>
+                    <name>shortening</name>
+                    <quantity>0.5</quantity>
+                </element>
+                <element>
+                    <name>eggs, lightly beaten</name>
+                    <quantity>4</quantity>
+                </element>
+                <element>
+                    <name>vanilla extract</name>
+                    <quantity>1</quantity>
+                </element>
+            </others>
+        </ingredients>
+        <steps>
+            <step>
+                <num>1</num>
+                <description>Combine the flour, baking powder, and 1 cup of the sugar together.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>2</num>
+                <description>Cut in the shortening and mix until the mixture resembles coarse crumbs.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>3</num>
+                <description>Mix in 4 of the eggs and 1 teaspoon of the vanilla.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>4</num>
+                <description>Divide dough into 4 balls and chill (if needed).</description>
+                <time>0</time>
+            </step>
+        </steps>
+    </recipe>
+    <recipe id="6">
+        <titre>Linguine Pescadoro</titre>
+        <type>food</type>
+        <url>https://img.cuisineaz.com/660x660/2020-12-02/i156376-linguine-armo.jpeg</url>
+        <ingredients>
+            <others>
+                <element>
+                    <name>linguini pasta</name>
+                    <quantity>16</quantity>
+                </element>
+                <element>
+                    <name>olive oil</name>
+                    <quantity>2</quantity>
+                </element>
+                <element>
+                    <name>minced cloves of garlicr </name>
+                    <quantity>2</quantity>
+                </element>
+                <element>
+                    <name> Italian seasoning</name>
+                    <quantity>0.5</quantity>
+                </element>
+                <element>
+                    <name>dried thyme</name>
+                    <quantity>0.25</quantity>
+                </element>
+                <element>
+                    <name>
+                        crushed red pepper flakes
+                    </name>
+                    <quantity>0.25</quantity>
+                </element>
+                <element>
+                    <name> crushed tomatoes</name>
+                    <quantity>0.25</quantity>
+                </element>
+                <element>
+                    <name> black olives, drained</name>
+                    <quantity>6</quantity>
+                </element>
+                <element>
+                    <name> whole baby clam </name>
+                    <quantity>10</quantity>
+                </element>
+                <element>
+                    <name> minced clams, with juice</name>
+                    <quantity>6.5</quantity>
+                </element>
+                <element>
+                    <name>small salad shrimp</name>
+                    <quantity>0.25</quantity>
+                </element>
+                <element>
+                    <name> scallops </name>
+                    <quantity>0.25</quantity>
+                </element>
+                <element>
+                    <name>lemon zest</name>
+                    <quantity>2.5</quantity>
+                </element>
+                <element>
+                    <name>ground black pepper</name>
+                </element>
+            </others>
+        </ingredients>
+        <steps>
+            <step>
+                <num>1</num>
+                <description>In a heavy saucepan over medium heat saute garlic in olive oil until garlic softens.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>2</num>
+                <description>Add Italian seasoning, thyme, crushed red pepper flakes, crushed tomatoes, black olives, and the juice from both cans of clams. Simmer for 15 minutes. </description>
+                <time>15</time>
+            </step>
+            <step>
+                <num>3</num>
+                <description>Mix in canned clams, shrimp, scallops, lemon zest, and salt and pepper to taste.</description>
+                <time>0</time>
+            </step>
+            <step>
+                <num>4</num>
+                <description>Simmer for an additional 15 minutes or until shrimp and clams are cooked.</description>
+                <time>0</time>
+            </step>
+        </steps>
+        <nutrition >
+            <calories>
+                349
+            </calories>
+            <fat>
+                18
+            </fat>
+            <carbohydrates>
+                64
+            </carbohydrates>
+            <protein>
+                18
+            </protein>
+        </nutrition>
+    </recipe>
+
+</recipes>

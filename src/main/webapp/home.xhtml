@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('home')}
+      <ui:define name="title">
+        <title>Home</title>
+      </ui:define>
+      <ui:define name="content">
+        <section class="bg-tertiary position-relative overflow-hidden">
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="block text-center text-lg-start pe-0 pe-xl-5">
+                  <h1 class="text-capitalize mb-4">
+                    Welcome to our recipes space
+                  </h1>
+                  <p class="mb-4">
+                    Start exploring and sharing recipes from and to others
+                  </p>
+                  <br />
+                  <a
+                    type="button"
+                    class="btn btn-primary px-5"
+                    href="./addRecipe.xhtml"
+                    >Start Sharing</a
+                  >
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="d-flex justify-content-center text-center">
+                  <!--  <img
+                loading="lazy"
+                decoding="async"
+                src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                alt="banner image"
+                class="w-100"
+              />-->
+                  <lottie-player
+                    src="https://assets2.lottiefiles.com/temp/lf20_nXwOJj.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 400px; height: 400px"
+                    loop="true"
+                    autoplay="true"
+                  ></lottie-player>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pt-5 pb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <h3 class="mb-3">Top Shared Recipes</h3>
+              </div>
+              <div class="col-6 text-right">
+                <a
+                  class="btn btn-primary mb-3 mr-1"
+                  href="#carouselExampleIndicators2"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <i class="fa fa-arrow-left"></i>
+                </a>
+                <a
+                  class="btn btn-primary mb-3"
+                  href="#carouselExampleIndicators2"
+                  role="button"
+                  data-slide="next"
+                >
+                  <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+              <div class="col-12">
+                <div
+                  id="carouselExampleIndicators2"
+                  class="carousel slide pointer-event"
+                  data-ride="carousel"
+                >
+                  <div class="carousel-inner">
+                    <div class="carousel-item">
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item active">
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <img
+                              class="img-fluid"
+                              alt="100%x280"
+                              style="max-height: 220px; min-height: 220px"
+                              src="https://cdni.iconscout.com/illustration/premium/thumb/food-recipe-5296934-4413446.png"
+                            />
+                            <div class="card-body">
+                              <h4 class="card-title">
+                                Special title treatment
+                              </h4>
+                              <div
+                                class="d-flex justify-content-center gap-5 mb-4"
+                              >
+                                <div
+                                  class="col w-50d-flex justify-content-start fw-bold"
+                                >
+                                  45 comments
+                                </div>
+                                <div
+                                  class="col w-50 d-flex justify-content-end fw-bold"
+                                >
+                                  5 likes
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end fw-bold">
+                                <a href="#" class="btn btn-primary shadow"
+                                  >More ...</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="pt-5 pb-5">
+          <div class="container">
+            <h3 class="text-primary text-decoration-underline">Feedback:</h3>
+            <hr />
+            <br />
+            <div>
+              <h:form
+                class="d-flex justify-content-center align-content-center gap-4"
+              >
+                <div class="form-group col-md-10">
+                  <label for="message" class="text-black fw-bold"
+                    >Give us your feedback</label
+                  >
+                  <h:inputText
+                    type="text"
+                    id="message"
+                    value="#{homeController.message}"
+                    class="form-control"
+                    style="height: 50px"
+                    p:placeholder="Comments ..."
+                  />
+                </div>
+
+                <h:commandButton
+                  actionListener="#{homeController.sendFeedback}"
+                  value="Submit"
+                  type="submit"
+                  class="btn btn-primary mt-2 p-1 w-25"
+                  style="height: 50px"
+                >
+                </h:commandButton>
+              </h:form>
+            </div>
+          </div>
+        </section>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

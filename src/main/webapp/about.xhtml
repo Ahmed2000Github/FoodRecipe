@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <h:body>
+    <ui:composition template="userTemplate/common.xhtml">
+      #{homeController.setCurrent('about')}
+      <ui:define name="title">
+        <title>About</title>
+      </ui:define>
+      <ui:define name="content">
+        <section class="bg-tertiary">
+          <div class="container">
+            <div class="row">
+              <div class="col-8 mx-auto text-center">
+                <h1 class="text-capitalize">About Us</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-lg-7">
+                <div class="section-title">
+                  <p class="text-primary text-uppercase fw-bold mb-3">
+                    About Food Recipe
+                  </p>
+                  <h2 class="h1 mb-4">
+                    Online Recipe <br />
+                    with the best way
+                  </h2>
+                  <div class="content pe-0 pe-lg-5">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                    <p>
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                      laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse
+                      cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mt-5 mt-lg-0">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://cdni.iconscout.com/illustration/premium/thumb/online-cooking-class-4302240-3575390.png"
+                  alt="Business Loans &lt;br&gt; For Daily Expenses"
+                  class="rounded w-100"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <div class="row justify-content-around">
+              <div class="col-lg-5">
+                <div class="section-title">
+                  <p class="text-primary text-uppercase fw-bold mb-3"></p>
+                  <h2>Who We Are?</h2>
+                </div>
+                <p class="lead">
+                  Insight loan advisors is completely independent loan advising
+                  service and our directory of lenders gives you all the
+                  information lorem ipsums sitamets.
+                </p>
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consv
+                  peent esque urna. Ac eu fringilla intea dger egadv estas ut.
+                  Sed vulutate aenean nunc quis a urna morbi id vitae. Vulpuate
+                  nisl
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="section-title">
+                  <p class="text-primary text-uppercase fw-bold mb-3"></p>
+                  <h2>What We Offer?</h2>
+                </div>
+                <p class="lead">
+                  Our loan sanction is one of the quicke with eas documentation
+                  and doorstep lorem ipsum serviceullam dolor sitisi.
+                </p>
+                <div class="content">
+                  <ul>
+                    <li>Habit building in essential steps choose habit</li>
+                    <li>Get an overview of Habit Calendars Latest Posts</li>
+                    <li>Start building habit with Habitify on platform</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ui:define>
+    </ui:composition></h:body
+  >
+</html>

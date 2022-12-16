@@ -1,0 +1,84 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+>
+  <h:body>
+    <ui:composition>
+      <header class="navigation bg-tertiary">
+        <nav class="navbar navbar-expand-xl navbar-light text-center py-3">
+          <div class="container">
+            <a class="navbar-brand" href="./dashbord.xhtml">
+              <img
+                loading="prelaod"
+                decoding="async"
+                class="img-fluid"
+                width="160"
+                src="../images/logo.jpg"
+                alt="Wallet"
+              />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="./dashbord.xhtml">Dashbord</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./recipes&amp;Comments.xhtml"
+                    >Recipes</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./users&amp;Comments.xhtml"
+                    >Users</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./notifications.xhtml">Feedbacks</a>
+                </li>
+              </ul>
+
+              <div class="nav-item dropdown">
+                <h3
+                  class="nav-link dropdown-toggle text-black"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Full Name
+                </h3>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fas fa-sign-out-alt mr-2"></i>
+                      <h:commandButton
+                        value="Logout"
+                        style="background: transparent; border: none"
+                        action="${userController.logout()}"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </ui:composition>
+  </h:body>
+</html>

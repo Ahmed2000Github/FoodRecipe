@@ -11,6 +11,7 @@ import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
@@ -31,7 +32,7 @@ public class AddRecipeController implements Serializable {
     @EJB
     private IRecipeServices recipeServices;
     private String title;
-    private String folder = "D:\\apache-tomee-plume\\webapps\\images\\";
+    private String folder = "D:\\apache-tomee-plume-8.0.12\\webapps\\images\\";
     private String type;
     private String url;
     private String groupType;

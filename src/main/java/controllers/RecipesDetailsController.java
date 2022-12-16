@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
@@ -62,7 +63,10 @@ public class RecipesDetailsController implements Serializable {
         User user = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
                 .get("user");
         String userId = user.getId();
-        messagesList = messageReceiver.receiveNewLike(userId);
+        List<CustomMessage> list = messageReceiver.receiveNewLike(userId);
+        for (CustomMessage customMessage : list) {
+            messagesList.add(customMessage);
+        }
         return messagesList;
     }
 
@@ -77,7 +81,6 @@ public class RecipesDetailsController implements Serializable {
         String userName = user.getName();
         recipeDetailsServices.addLike(id, userId);
         messageSender.sendNewLike(infoData.get("ownerId"), infoData.get("title"), userName);
-        System.out.println("################################# " + infoData.get("ownerId"));
     }
 
     public void addComment(ActionEvent ae) throws IOException {

@@ -26,7 +26,7 @@ public interface IAdminService {
 
     public void deleteUser(String userId);
 
-    public Map<String, String> getStatistics();
+    public Map<String, Integer> getStatistics();
 
     public List<FeedbackMessage> getFeedbacks();
 

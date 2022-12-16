@@ -56,7 +56,7 @@ public class MessageReceiver implements IMessageReceiver {
         }
         connection.close();
 
-        return list;
+        return list == null ? new ArrayList<>() : list;
     }
 
     @Override

@@ -1,0 +1,69 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:c="http://java.sun.com/jstl/core"
+>
+  <h:head>
+    <meta charset="utf-8" />
+    <ui:insert name="title">
+      <title>Not found</title>
+    </ui:insert>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <meta name="description" content="This is meta description" />
+    <meta name="author" content="Themefisher" />
+    <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon" />
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+
+    <!-- # Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"
+      rel="stylesheet"
+    />
+
+    <link href="./" rel="stylesheet" />
+
+    <!-- # CSS Plugins -->
+    <link rel="stylesheet" href="../plugins/slick/slick.css" />
+    <link rel="stylesheet" href="../plugins/font-awesome/fontawesome.min.css" />
+    <link rel="stylesheet" href="../plugins/font-awesome/brands.css" />
+    <link rel="stylesheet" href="../plugins/font-awesome/solid.css" />
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css" />
+
+    <!-- # Main Style Sheet -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </h:head>
+  <h:body>
+    <div>
+      <ui:insert name="header">
+        <ui:include src="/adminTemplate/header.xhtml" />
+      </ui:insert>
+    </div>
+    <br />
+
+    <div>
+      <ui:insert name="content">
+        <ui:include src="/adminSpace/dashbord.xhtml" />
+      </ui:insert>
+    </div>
+    <br />
+
+    <div>
+      <ui:insert name="footer">
+        <ui:include src="/adminTemplate/footer.xhtml" />
+      </ui:insert>
+    </div>
+  </h:body>
+</html>

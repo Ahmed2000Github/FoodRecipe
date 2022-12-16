@@ -1,0 +1,432 @@
+{
+  "recipes": {
+    "recipe": [
+      {
+        "titre": "Crock Pot Roast",
+        "type": "food",
+        "url": "https://th.bing.com/th/id/OIP.1QH7lCMf6yDte3kgvM7qKAHaK8?pid=ImgDet&rs=1",
+        "ingredients": {
+          "vegitables": {
+            "element": [
+              {
+                "name": "carrot",
+                "quantite": "2"
+              },
+              {
+                "name": "onion",
+                "quantite": "1"
+              }
+            ]
+          },
+          "oils": {
+            "element": {
+              "name": "olive",
+              "quantite": "1/2 cup"
+            }
+          },
+          "others": {
+            "element": {
+              "name": "water",
+              "quantite": "2 cup"
+            }
+          }
+        },
+        "steps": {
+          "step": [
+            {
+              "num": "1",
+              "description": "Place beef roast in crock pot.",
+              "time": "0"
+            },
+            {
+              "num": "2",
+              "description": "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+              "time": "0"
+            },
+            {
+              "num": "3",
+              "description": "Pour the water around the roast.",
+              "time": "0"
+            },
+            {
+              "num": "4",
+              "description": "Cook on low for 7-9 hours.",
+              "time": "420"
+            }
+          ]
+        },
+        "nutrition": {
+          "calories": "1167",
+          "fat": "23",
+          "carbohydrates": "45",
+          "protein": "32"
+        },
+        "likes": "12",
+        "Comments": {
+          "comment": "is very delicious"
+        },
+        "_id": "1"
+      },
+      {
+        "titre": "orange juice",
+        "type": "juice",
+        "url": "https://th.bing.com/th/id/OIP.4jw9ULBKY-QHRBdfd2bhOgHaFA?w=247&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+        "ingredients": {
+          "fuits": {
+            "element": {
+              "name": "orange",
+              "quantite": "10"
+            }
+          },
+          "others": {
+            "element": [
+              {
+                "name": "water",
+                "quantite": "4 cup"
+              },
+              {
+                "name": "sugre",
+                "quantite": "200 g"
+              }
+            ]
+          }
+        },
+        "steps": {
+          "step": [
+            {
+              "num": "1",
+              "description": "cut oranges",
+              "time": "1"
+            },
+            {
+              "num": "2",
+              "description": "Squeeze the pieces into a glass",
+              "time": "0"
+            },
+            {
+              "num": "3",
+              "description": "add sugar",
+              "time": "0"
+            },
+            {
+              "num": "4",
+              "description": "Mix the obtained mixture",
+              "time": "0"
+            }
+          ]
+        },
+        "nutrition": {
+          "calories": "14",
+          "fat": "0.1",
+          "carbohydrates": "3",
+          "protein": "0.2"
+        },
+        "likes": "12",
+        "Comments": {
+          "comment": "is very delicious"
+        },
+        "_id": "2"
+      },
+      {
+        "titre": "Yorkshire Puds",
+        "type": "food",
+        "url": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg",
+        "ingredients": {
+          "others": {
+            "element": [
+              {
+                "name": "vegetable oil",
+                "quantity": "3 tbsp"
+              },
+              {
+                "name": "milk",
+                "quantity": "300ml"
+              },
+              {
+                "name": "eggs",
+                "quantity": "3"
+              },
+              {
+                "name": "plain flour",
+                "quantity": "200g"
+              }
+            ]
+          }
+        },
+        "steps": {
+          "step": [
+            {
+              "num": "1",
+              "description": "Put the flour and some seasoning into a large bowl.",
+              "time": "0"
+            },
+            {
+              "num": "2",
+              "description": "Stir in eggs, one at a time.",
+              "time": "0"
+            },
+            {
+              "num": "3",
+              "description": "Whisk in milk until you have a smooth batter.",
+              "time": "0"
+            },
+            {
+              "num": "4",
+              "description": "Chill in the fridge for at least 30 minutes.",
+              "time": "30"
+            },
+            {
+              "num": "5",
+              "description": "Heat oven to 220C/gas mark 7.",
+              "time": "0"
+            },
+            {
+              "num": "6",
+              "description": "Pour the oil into the holes of a 8-hole muffin tin.",
+              "time": "0"
+            },
+            {
+              "num": "7",
+              "description": "Heat tin in the oven for 5 minutes.",
+              "time": "5"
+            },
+            {
+              "num": "8",
+              "description": "Ladle the batter mix into the tin.",
+              "time": "0"
+            },
+            {
+              "num": "9",
+              "description": "Bake for 30 minutes until well browned and risen.",
+              "time": "30"
+            }
+          ]
+        },
+        "nutrition": {
+          "calories": "?",
+          "fat": "?",
+          "carbohydrates": "?",
+          "protein": "?"
+        },
+        "likes": "3",
+        "Comments": {
+          "comment": "so hard to do"
+        },
+        "_id": "3"
+      },
+      {
+        "titre": "Ricotta Pie",
+        "type": "food",
+        "url": "http://1.bp.blogspot.com/-zKqzJeEuagI/UW0DFGK4V8I/AAAAAAAAD8g/clm-TQZK0N8/s1600/FOTO2-3.jpg",
+        "ingredients": {
+          "others": {
+            "element": [
+              {
+                "name": "ricotta cheese",
+                "quantity": "3"
+              },
+              {
+                "name": "eggs",
+                "quantity": "12"
+              },
+              {
+                "name": "white sugar",
+                "quantity": "3 tbsp"
+              },
+              {
+                "name": "vanilla extract",
+                "quantity": "2"
+              },
+              {
+                "name": "semisweet chocolate chips",
+                "quantity": "0.25"
+              }
+            ]
+          }
+        },
+        "steps": {
+          "step": [
+            {
+              "num": "1",
+              "description": "Beat the 12 eggs,",
+              "time": "0"
+            },
+            {
+              "num": "2",
+              "description": "2 cups sugar and vanilla extract together.",
+              "time": "0"
+            },
+            {
+              "num": "3",
+              "description": "Stir in the ricotta cheese and the chocolate chips.",
+              "time": "0"
+            },
+            {
+              "num": "4",
+              "description": "Set aside.",
+              "time": "0"
+            }
+          ]
+        },
+        "_id": "4"
+      },
+      {
+        "titre": "dough",
+        "type": "food",
+        "url": "https://media.gettyimages.com/photos/making-yeast-dough-picture-id517164278",
+        "ingredients": {
+          "others": {
+            "element": [
+              {
+                "name": "flour",
+                "quantity": "4"
+              },
+              {
+                "name": "baking powder",
+                "quantity": "5"
+              },
+              {
+                "name": "white sugar",
+                "quantity": "1"
+              },
+              {
+                "name": "shortening",
+                "quantity": "0.5"
+              },
+              {
+                "name": "eggs, lightly beaten",
+                "quantity": "4"
+              },
+              {
+                "name": "vanilla extract",
+                "quantity": "1"
+              }
+            ]
+          }
+        },
+        "steps": {
+          "step": [
+            {
+              "num": "1",
+              "description": "Combine the flour, baking powder, and 1 cup of the sugar together.",
+              "time": "0"
+            },
+            {
+              "num": "2",
+              "description": "Cut in the shortening and mix until the mixture resembles coarse crumbs.",
+              "time": "0"
+            },
+            {
+              "num": "3",
+              "description": "Mix in 4 of the eggs and 1 teaspoon of the vanilla.",
+              "time": "0"
+            },
+            {
+              "num": "4",
+              "description": "Divide dough into 4 balls and chill (if needed).",
+              "time": "0"
+            }
+          ]
+        },
+        "_id": "5"
+      },
+      {
+        "titre": "Linguine Pescadoro",
+        "type": "food",
+        "url": "https://img.cuisineaz.com/660x660/2020-12-02/i156376-linguine-armo.jpeg",
+        "ingredients": {
+          "others": {
+            "element": [
+              {
+                "name": "linguini pasta",
+                "quantity": "16"
+              },
+              {
+                "name": "olive oil",
+                "quantity": "2"
+              },
+              {
+                "name": "minced cloves of garlicr",
+                "quantity": "2"
+              },
+              {
+                "name": "Italian seasoning",
+                "quantity": "0.5"
+              },
+              {
+                "name": "dried thyme",
+                "quantity": "0.25"
+              },
+              {
+                "name": "crushed red pepper flakes",
+                "quantity": "0.25"
+              },
+              {
+                "name": "crushed tomatoes",
+                "quantity": "0.25"
+              },
+              {
+                "name": "black olives, drained",
+                "quantity": "6"
+              },
+              {
+                "name": "whole baby clam",
+                "quantity": "10"
+              },
+              {
+                "name": "minced clams, with juice",
+                "quantity": "6.5"
+              },
+              {
+                "name": "small salad shrimp",
+                "quantity": "0.25"
+              },
+              {
+                "name": "scallops",
+                "quantity": "0.25"
+              },
+              {
+                "name": "lemon zest",
+                "quantity": "2.5"
+              },
+              {
+                "name": "ground black pepper"
+              }
+            ]
+          }
+        },
+        "steps": {
+          "step": [
+            {
+              "num": "1",
+              "description": "In a heavy saucepan over medium heat saute garlic in olive oil until garlic softens.",
+              "time": "0"
+            },
+            {
+              "num": "2",
+              "description": "Add Italian seasoning, thyme, crushed red pepper flakes, crushed tomatoes, black olives, and the juice from both cans of clams. Simmer for 15 minutes.",
+              "time": "15"
+            },
+            {
+              "num": "3",
+              "description": "Mix in canned clams, shrimp, scallops, lemon zest, and salt and pepper to taste.",
+              "time": "0"
+            },
+            {
+              "num": "4",
+              "description": "Simmer for an additional 15 minutes or until shrimp and clams are cooked.",
+              "time": "0"
+            }
+          ]
+        },
+        "nutrition": {
+          "calories": "349",
+          "fat": "18",
+          "carbohydrates": "64",
+          "protein": "18"
+        },
+        "_id": "6"
+      }
+    ]
+  }
+}

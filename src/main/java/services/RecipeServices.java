@@ -1,6 +1,7 @@
 
 package services;
 
+import models.Pair;
 import models.RecipeVM;
 
 import org.neo4j.driver.AuthTokens;
@@ -178,17 +179,40 @@ public class RecipeServices implements AutoCloseable, IRecipeServices {
 
     @Override
     public void close() throws Exception {
-        // TODO Auto-generated method stub
         driver.close();
     }
 
+    @Override
+    public Pair<List<RecipeVM>, List<RecipeVM>> getTopRecipes() {
+
+        try (Session session = driver.session()) {
+            String query = "MATCH (recipe:Recipe) RETURN recipe.id,recipe.title,recipe.type,recipe.url,recipe.date,recipe.like LIMIT 3";
+            Result result = session.run(query);
+            List<Record> list = result.list();
+            List<RecipeVM> listRecipes = new ArrayList<>();
+            for (Record record : list) {
+                query = "MATCH (:Recipe {id: '" + record.get("recipe.id").asString()
+                        + "'})-[r:HAS_COMMENT]-(comment) RETURN count(r)";
+                Result subResult = session.run(query);
+                listRecipes.add(new RecipeVM(record.get("recipe.id").asString(), record.get("recipe.title").asString(),
+                        record.get("recipe.url").asString(), String.valueOf(subResult.single().get("count(r)").asInt()),
+                        String.valueOf(record.get("recipe.like").asInt()), record.get("recipe.date").asString()));
+            }
+            session.close();
+            return new Pair<List<RecipeVM>, List<RecipeVM>>(listRecipes, listRecipes);
+        }
+
+    }
+
     // public static void main(String[] args) {
-    //// RecipeServices services = new RecipeServices();
-    //// for (RecipeVM recipeVM : services.searchByType("juice")) {
-    //// System.out.println(recipeVM.getComments());
-    //// }
-    //// System.out.println("Description Description Description D...".length());
-    //// services.addRecipe();
+    // RecipeServices services = new RecipeServices();
+    // System.out.println("@@@@@@@@@@@@@@@@@@");
+    // System.out.println(services.getTopRecipes().first.size());
+    // // for (RecipeVM recipeVM : services.searchByType("juice")) {
+    // // System.out.println(recipeVM.getComments());
+    // // }
+    // // System.out.println("Description Description Description D...".length());
+    // // services.addRecipe();
     // }
 
 }

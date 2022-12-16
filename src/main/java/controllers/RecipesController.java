@@ -11,6 +11,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
@@ -20,37 +21,32 @@ import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPathExpressionException;
 import org.xml.sax.SAXException;
 
+import lombok.Data;
+import models.Pair;
 import models.RecipeVM;
 import models.User;
 import services.IRecipeServices;
 import services.ISearchService;
 
-@Named("recipesController")
+@Named
 @SessionScoped
+@Data
 public class RecipesController implements Serializable {
 
-    String type = "all";
-    String word = "";
-    private String folder = "D:\\apache-tomee-plume\\webapps\\images\\";
-    Boolean isOpen = false;
+    private String type = "all";
+    private String word = "";
+    private String folder = "D:\\apache-tomee-plume-8.0.12\\webapps\\images\\temp\\";
+    private Boolean isOpen = false;
     private String fileName = "";
-    String url = "";
+    private String tempUrl = "";
+    private String url = "";
     private Part imageFile;
-    List<RecipeVM> recipes = new ArrayList<>();
-    Map<String, String> results = new HashMap<>();
+    private List<RecipeVM> recipes = new ArrayList<>();
+    private Map<String, Double> results = new HashMap<>();
     @EJB
     private ISearchService searchService;
     @EJB
     private IRecipeServices recipeServices;
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        System.out.println("the type is : " + type);
-        this.type = type;
-    }
 
     public String getCurrent(String income) {
         if (type.equals(income)) {
@@ -59,7 +55,7 @@ public class RecipesController implements Serializable {
         return "";
     }
 
-    public List<RecipeVM> getRecipes()
+    public List<RecipeVM> _getRecipes()
             throws XPathExpressionException, ParserConfigurationException, SAXException,
             IOException, TransformerException {
 
@@ -74,17 +70,26 @@ public class RecipesController implements Serializable {
 
     }
 
-    public void getRecipeByWord(ActionEvent ae) {
+    public void getRecipeByWord() {
+        isOpen = false;
         recipes = searchService.searchByWord(word);
     }
 
-    public void getRecipeByImage(ActionEvent ae) {
-        recipes = searchService.searchByImage(getFile());
+    public void getRecipeByImage() {
         if (!url.equals("")) {
             File file = new File(url);
             file.delete();
             url = "";
         }
+
+        Pair<List<RecipeVM>, Map<String, Double>> pair = searchService.searchByImage(getFile());
+        recipes = pair.first;
+        results = pair.second;
+        fileName = "";
+        if (results.size() > 0 || tempUrl.equals("")) {
+            isOpen = true;
+        }
+
     }
 
     private File getFile() {
@@ -100,6 +105,7 @@ public class RecipesController implements Serializable {
             try {
                 Long time = new Date().getTime();
                 url = folder + (time) + fileName;
+                tempUrl = "../images/temp/" + (time) + fileName;
                 imageFile.write(url);
                 File file = new File(url);
                 return file;

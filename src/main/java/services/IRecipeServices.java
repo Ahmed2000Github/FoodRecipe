@@ -3,6 +3,7 @@ package services;
 import java.util.List;
 import java.util.Map;
 
+import models.Pair;
 import models.RecipeVM;
 
 public interface IRecipeServices {
@@ -14,4 +15,6 @@ public interface IRecipeServices {
             List<Map<String, String>> steps, List<Map<String, String>> nutritions, String userId);
 
     public List<RecipeVM> getByUserId(String userId);
+
+    public Pair<List<RecipeVM>, List<RecipeVM>> getTopRecipes();
 }

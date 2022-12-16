@@ -64,6 +64,7 @@ public class AdminService implements IAdminService, AutoCloseable {
             List<Record> list = session.run(query).list();
             for (Record record : list) {
                 Map<String, String> comment = new HashMap<>();
+                comment.put("id", record.get("comment.id").asString());
                 comment.put("date", record.get("comment.date").asString());
                 comment.put("description", record.get("comment.description").asString());
                 query = "MATCH (user:User )-[r:WRITE_COMMENT]-(comment:Comment {id:'" + record.get("comment.id")
@@ -87,6 +88,7 @@ public class AdminService implements IAdminService, AutoCloseable {
             List<Record> list = session.run(query).list();
             for (Record record : list) {
                 Map<String, String> comment = new HashMap<>();
+                comment.put("id", record.get("comment.id").asString());
                 comment.put("date", record.get("comment.date").asString());
                 comment.put("description", record.get("comment.description").asString());
                 comment.put("username", record.get("user.name").asString());
@@ -107,7 +109,7 @@ public class AdminService implements IAdminService, AutoCloseable {
             for (Record record : list) {
                 Map<String, String> data = new HashMap<>();
                 String recipeId = record.get("recipe.id").asString();
-                data.put("_id", recipeId);
+                data.put("id", recipeId);
                 data.put("title", record.get("recipe.title").asString());
                 data.put("url", record.get("recipe.url").asString());
                 data.put("type", record.get("recipe.type").asString());
@@ -190,9 +192,30 @@ public class AdminService implements IAdminService, AutoCloseable {
     }
 
     @Override
-    public Map<String, String> getStatistics() {
-        return null;
+    public Map<String, Integer> getStatistics() {
+        Map<String, Integer> data = new HashMap<>();
+        try (Session session = driver.session()) {
+            String query = "MATCH (user:User) RETURN count(user)";
+            Record record = session.run(query).single();
+            data.put("users", record.get("count(user)").asInt());
+            query = "MATCH (recipe:Recipe) RETURN count(recipe)";
+            record = session.run(query).single();
+            data.put("recipes", record.get("count(recipe)").asInt());
+            query = "MATCH (comment:Comment) RETURN count(comment)";
+            record = session.run(query).single();
+            data.put("comments", record.get("count(comment)").asInt());
+            query = "MATCH (feedback:Feedback) RETURN count(feedback)";
+            record = session.run(query).single();
+            data.put("feedbacks", record.get("count(feedback)").asInt());
+            session.close();
+
+            return data;
+        }
     }
+
+    // public static void main(String[] args) {
+    // System.out.println(new AdminService().getStatistics());
+    // }
 
     @Override
     public List<FeedbackMessage> getFeedbacks() {
@@ -220,7 +243,7 @@ public class AdminService implements IAdminService, AutoCloseable {
             String query = "CREATE (ee:Feedback {id:'" + feedbackMessage.getId()
                     + "',description: '"
                     + feedbackMessage.getMessage()
-                    + "',date:'" + feedbackMessage.getDate() + "') RETURN id(ee)";
+                    + "',date:'" + feedbackMessage.getDate() + "'}) RETURN id(ee)";
             session.run(query);
             query = "MATCH (a:User),(b:Feedback) WHERE a.id = '" + feedbackMessage.getUserId()
                     + "' AND b.id = '" + feedbackMessage.getId() + "' CREATE (a)-[r:ADD_FEEDBACK]->(b) RETURN r";

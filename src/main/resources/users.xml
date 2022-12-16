@@ -11,3 +11,10 @@
         <password>123456</password>
     </user>
 </users>
+
+<c:choose>
+    <c:when test="#{userController.testSessionHome()}"></c:when>
+    <c:otherwise>
+        <div></div>
+    </c:otherwise>
+</c:choose>

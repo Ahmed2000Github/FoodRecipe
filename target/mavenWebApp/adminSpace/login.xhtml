@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+  <f:view>
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Login</title>
+      <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon" />
+      <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <link rel="stylesheet" href="../css/login.css" />
+    </head>
+    <body>
+      <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div class="card card0 border-0" style="border-radius: 5px">
+          <div class="row d-flex">
+            <div class="col-lg-6">
+              <div class="card1 pb-5">
+                <div class="row">
+                  <img src="../images/logo.jpg" class="logo" />
+                </div>
+                <div
+                  class="row px-1 justify-content-center mt-4 mb-5 border-line"
+                >
+                  <img
+                    src="https://cdni.iconscout.com/illustration/premium/thumb/company-business-admin-analysis-data-report-6191115-5091738.png"
+                    class="image"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h:form class="was-validated">
+                <div class="card2 card border-0 px-4 py-5">
+                  <br />
+                  <br />
+                  <c:choose>
+                    <c:when test="#{userController.auth}"> </c:when>
+                    <c:otherwise>
+                      <div
+                        class="alert alert-danger container"
+                        style="margin-top: 5%"
+                        role="alert"
+                      >
+                        Les informations sont incorrect!
+                      </div>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <c:choose>
+                    <c:when test="#{userController.testSession()}"> </c:when>
+                    <c:otherwise>
+                      <div></div>
+                    </c:otherwise>
+                  </c:choose>
+                  <br />
+                  <br />
+                  <div class="row px-3 has-validation">
+                    <label class="mb-1"
+                      ><h6 class="mb-0 text-sm">Email Address</h6></label
+                    >
+
+                    <h:inputText
+                      class="mb-4"
+                      type="text"
+                      name="email"
+                      p:required="true"
+                      value="${userController.email}"
+                      p:placeholder="Enter a valid email address"
+                    />
+                  </div>
+                  <div class="row px-3 has-validation">
+                    <label class="mb-1"
+                      ><h6 class="mb-0 text-sm">Password</h6></label
+                    >
+                    <h:inputSecret
+                      name="password"
+                      value="${userController.password}"
+                      p:required="true"
+                      p:placeholder="Enter password"
+                    />
+                  </div>
+                  <br />
+                  <div class="row mb-3 px-3">
+                    <!--                    <button-->
+                    <!--                            type="submit"-->
+                    <!--                            class="btn btn-success text-center"-->
+                    <!--                            style="width: 100px"-->
+
+                    <!--                    >-->
+                    <!--                      Login-->
+                    <!--                    </button>-->
+                    <h:commandButton
+                      class="btn btn-success text-center"
+                      style="width: 100px"
+                      value="Login"
+                      action="${userController.doLogin()}"
+                    />
+                  </div>
+                  <div class="row mb-4 px-3">
+                    <small class="font-weight-bold"
+                      >Don't have an account?
+                      <!--                      <a class="text-success">Register</a></small>-->
+                      <h:link
+                        class="text-success"
+                        value="Register"
+                        outcome="register"
+                    /></small>
+                  </div>
+                </div>
+              </h:form>
+            </div>
+          </div>
+          <div class="bg-success py-4">
+            <div class="row px-3">
+              <small class="ml-4 ml-sm-5 mb-2 text-white"
+                >Copyright &copy; 2022. CookShare Team All rights
+                reserved.</small
+              >
+              <div class="social-contact ml-4 ml-sm-auto">
+                <span class="fa fa-facebook mr-4 text-sm text-white"></span>
+                <span class="fa fa-google-plus mr-4 text-sm text-white"></span>
+                <span class="fa fa-linkedin mr-4 text-sm text-white"></span>
+                <span
+                  class="fa fa-twitter mr-4 mr-sm-5 text-sm text-white"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="../jquery/jquery.min.js"></script>
+      <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+
+      <script src=""></script>
+    </body>
+  </f:view>
+</html>

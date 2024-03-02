@@ -15,7 +15,7 @@ Welcome to the FoodRecipe Platform, a Java Enterprise Edition (JEE) application 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/FoodRecipe.git
+   git clone https://github.com/Ahmed2000Github/FoodRecipe.git
    cd foodrecipe-platform
 2. **Setup Neo4j Database:**
 
